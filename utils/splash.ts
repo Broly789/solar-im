@@ -2,8 +2,7 @@ import { useAuth } from '@clerk/expo'
 import * as SplashScreen from 'expo-splash-screen'
 import { useEffect } from 'react'
 
-// 删掉这里的 preventAutoHideAsync，统一放根_layout顶层
-
+// preventAutoHideAsync，统一放根_layout顶层
 export const SplashScreenController = () => {
   const { isLoaded } = useAuth()
 

@@ -28,7 +28,7 @@ function AppStack() {
 
         {/* 手动传入 guard，和官方示例写法完全统一 */}
         <Stack.Protected guard={!!isSignedIn}>
-          <Stack.Screen name="(home)" options={{ headerShown: false }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         </Stack.Protected>
       </Stack>
     </SafeAreaProvider>
