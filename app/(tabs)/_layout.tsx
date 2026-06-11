@@ -1,4 +1,9 @@
-import { Icon, Label, NativeTabs } from 'expo-router/unstable-native-tabs'
+import {
+  Badge,
+  Icon,
+  Label,
+  NativeTabs,
+} from 'expo-router/unstable-native-tabs'
 
 export default function TabLayout() {
   return (
@@ -12,6 +17,7 @@ export default function TabLayout() {
         />
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="explore">
+        <Badge>9+</Badge>
         <Label>Explore</Label>
         <Icon
           sf="safari"
@@ -26,6 +32,9 @@ export default function TabLayout() {
           selectedColor={'#6C5CE7'}
           drawable="custom_android_drawable"
         />
+      </NativeTabs.Trigger>
+      <NativeTabs.Trigger name="search" role="search">
+        <Label>Search</Label>
       </NativeTabs.Trigger>
     </NativeTabs>
   )
