@@ -1,17 +1,19 @@
 {
   "extends": "expo/tsconfig.base",
+  // 新增这两行，适配 nativewind jsxImportSource
+  "jsx": "react-jsx",
+  "jsxImportSource": "nativewind",
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"]
     }
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts"
+    "expo-env.d.ts",
+    "nativewind-env.d.ts"
   ]
 }
