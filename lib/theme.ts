@@ -1,6 +1,6 @@
 // 不能在本文件顶层调用 useWindowDimensions，移到组件内使用
 // import { useWindowDimensions } from 'react-native'
-// import { DeepPartial, Theme } from "stream-chat-expo";
+import { DeepPartial, Theme } from "stream-chat-expo";
 // import type { DeepPartial, Theme } from "stream-chat-expo";
 
 // 纯工具函数，width 由组件通过 useWindowDimensions 传入
@@ -44,7 +44,7 @@ export const COLORS = {
 // const studyBuddyTheme = createStudyBuddyTheme(width)
 
 // 改为工厂函数，外部传入实时屏幕宽度（组件内用 useWindowDimensions 获取）
-export const createStudyBuddyTheme = (width: number) => {
+export const createStudyBuddyTheme = (width: number): DeepPartial<Theme> => {
   return {
     colors: {
       targetedMessageBackground: 'transparent',

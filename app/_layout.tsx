@@ -1,3 +1,5 @@
+import ChatWrapper from "@/components/ChatWrapper"
+import { AppProvider } from "@/contexts/AppContext"
 import { SplashScreenController } from '@/utils/splash'
 import { ClerkProvider, useAuth } from '@clerk/expo'
 import { tokenCache } from '@clerk/expo/token-cache'
@@ -40,7 +42,11 @@ export default function RootLayout() {
       <SplashScreenController />
       <SafeAreaProvider>
         <GestureHandlerRootView className='flex-1'>
-          <AppStack />
+          <ChatWrapper>
+            <AppProvider>
+              <AppStack />
+            </AppProvider>
+          </ChatWrapper>
         </GestureHandlerRootView>
       </SafeAreaProvider>
     </ClerkProvider>
