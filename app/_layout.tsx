@@ -3,6 +3,7 @@ import { ClerkProvider, useAuth } from '@clerk/expo'
 import { tokenCache } from '@clerk/expo/token-cache'
 import { Stack } from 'expo-router'
 import * as SplashScreen from 'expo-splash-screen'
+import { GestureHandlerRootView } from "react-native-gesture-handler"
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import '../global.css'
 
@@ -19,7 +20,6 @@ function AppStack() {
   // 关键：登录状态没加载完，不渲染任何页面，杜绝中间过渡页
   if (!isLoaded) return null
   return (
-    <SafeAreaProvider>
       <Stack>
         {/* 公开登录路由，不受保护 */}
         <Stack.Protected guard={!isSignedIn}>
@@ -31,7 +31,6 @@ function AppStack() {
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         </Stack.Protected>
       </Stack>
-    </SafeAreaProvider>
   )
 }
 
@@ -39,7 +38,11 @@ export default function RootLayout() {
   return (
     <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
       <SplashScreenController />
-      <AppStack />
+      <SafeAreaProvider>
+        <GestureHandlerRootView className='flex-1'>
+          <AppStack />
+        </GestureHandlerRootView>
+      </SafeAreaProvider>
     </ClerkProvider>
   )
 }
